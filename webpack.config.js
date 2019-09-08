@@ -4,7 +4,7 @@ const path = require('path')
 
 module.exports = {
 
-  entry: ['./src/main.js'],
+  entry: ['./src/main.ts'],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, './dist')
@@ -13,7 +13,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(ts|js)$/,
         include: 
         [
             path.resolve(__dirname, './src'),
@@ -24,6 +24,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
+                '@babel/preset-typescript',
                 '@babel/preset-env'
             //   ["@babel/preset-env", {
             //       corejs: 3,
@@ -32,14 +33,10 @@ module.exports = {
             //   }]
             ],
             plugins: [
-                "@babel/plugin-transform-runtime"
+                ["@babel/plugin-proposal-decorators", {decoratorsBeforeExport: true}],
+                "@babel/plugin-transform-runtime",
+                '@babel/plugin-proposal-class-properties',
             ]
-            // plugins: [
-            //     ["@babel/plugin-transform-runtime", {
-            //         corejs: 3,
-            //         proposals: true,
-            //     }],
-            // ]
           }
         }
       }
