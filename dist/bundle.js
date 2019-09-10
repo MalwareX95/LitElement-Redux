@@ -125,7 +125,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function _templateObject2() {
-  var data = _babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1___default()(["\n            <div>\n                das\n            </div>\n        "]);
+  var data = _babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1___default()(["\n            <div>\n                ", "\n            </div>\n        "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -198,19 +198,26 @@ var MyComponent = _decorate([Object(lit_element__WEBPACK_IMPORTED_MODULE_8__["cu
   return {
     F: MyComponent,
     d: [{
+      kind: "field",
+      decorators: [Object(lit_element__WEBPACK_IMPORTED_MODULE_8__["property"])({
+        type: String
+      })],
+      key: "title",
+      value: function value() {
+        return '';
+      }
+    }, {
       kind: "get",
       "static": true,
       key: "styles",
-      value: // @property({type: String})
-      // title = ''
-      function styles() {
+      value: function styles() {
         return [Object(lit_element__WEBPACK_IMPORTED_MODULE_8__["css"])(_templateObject())];
       }
     }, {
       kind: "method",
       key: "render",
       value: function render() {
-        return Object(lit_element__WEBPACK_IMPORTED_MODULE_8__["html"])(_templateObject2());
+        return Object(lit_element__WEBPACK_IMPORTED_MODULE_8__["html"])(_templateObject2(), this.title);
       }
     }]
   };

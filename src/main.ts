@@ -6,8 +6,8 @@ import {html, LitElement, css, customElement, property} from 'lit-element'
 
 @customElement('my-app')
 export class MyComponent extends LitElement{
-    // @property({type: String})
-    // title = ''
+    @property({type: String})
+    title = ''
 
     static get styles(){
         return [
@@ -22,7 +22,7 @@ export class MyComponent extends LitElement{
     render(){
         return html`
             <div>
-                das
+                ${this.title}
             </div>
         `
     }
