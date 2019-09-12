@@ -2,30 +2,45 @@
 // import "@webcomponents/webcomponentsjs/webcomponents-bundle";
 // import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js';
 
-import {html, LitElement, css, customElement, property} from 'lit-element'
+import {html, LitElement, css, customElement, property, eventOptions} from 'lit-element';
+
+// import {increment} from './actions/appActions'
+// import {Part} from 'lit-html/lib/part'
+// import {directive, TemplateResult,} from 'lit-html';
+// import {unsafeHTML} from 'lit-html/directives/unsafe-html';
+
+import {connect} from 'pwa-helpers/connect-mixin'
+import {store} from './redux-basic';
+import('./view1')
 
 @customElement('my-app')
-export class MyComponent extends LitElement{
-    @property({type: String})
-    title = ''
+export class MyComponent extends connect(store)(LitElement){
 
+    @property({type: String})
+    title = '';
+    
     static get styles(){
         return [
             css`
                 :host {
                     display: block;
-                    background: red;
+                    font-size: 20px;
+                    background: blue;
                 }
             `
         ]
     }
+
+    // increment()
+    //     store.dispatch(increment())
+    // }
+    
     render(){
         return html`
             <div>
-                ${this.title}
+                <counter-view></counter-view>
             </div>
         `
     }
 }
 
-// customElements.define('my-app', MyComponent);

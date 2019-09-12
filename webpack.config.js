@@ -3,12 +3,17 @@ const path = require('path')
 // const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-
-  entry: ['./src/main.ts'],
+  // entry: ['./src/main.ts'],
+  entry: ['@babel/polyfill', '@webcomponents/webcomponentsjs', './src/main.ts'],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, './dist')
   },
+
+  resolve: {
+    extensions: ['.ts', '.js']
+  },
+
   mode: 'none',
   module: {
     rules: [
@@ -25,7 +30,9 @@ module.exports = {
           options: {
             presets: [
                 '@babel/preset-typescript',
-                '@babel/preset-env'
+                // ['@babel/preset-env', {
+                //   modules: true
+                // }]
             //   ["@babel/preset-env", {
             //       corejs: 3,
             //       modules: false,
@@ -33,9 +40,10 @@ module.exports = {
             //   }]
             ],
             plugins: [
-                ["@babel/plugin-proposal-decorators", {decoratorsBeforeExport: true}],
+              ["@babel/plugin-proposal-decorators", {decoratorsBeforeExport: true}],
+              '@babel/plugin-syntax-dynamic-import',
+              '@babel/plugin-proposal-class-properties',
                 "@babel/plugin-transform-runtime",
-                '@babel/plugin-proposal-class-properties',
             ]
           }
         }

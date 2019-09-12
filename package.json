@@ -17,6 +17,7 @@
     "@babel/core": "^7.6.0",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-decorators": "^7.6.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-typescript": "^7.6.0",
@@ -29,6 +30,12 @@
     "@babel/polyfill": "^7.6.0",
     "@babel/runtime": "^7.6.0",
     "@webcomponents/webcomponentsjs": "^2.2.10",
-    "lit-element": "^2.2.1"
+    "babel-plugin-transform-builtin-classes": "^0.6.1",
+    "babel-plugin-transform-custom-element-classes": "^0.1.0",
+    "babel-plugin-transform-es2015-classes": "^6.24.1",
+    "lit-element": "^2.2.1",
+    "pwa-helpers": "^0.9.1",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0"
   }
 }
