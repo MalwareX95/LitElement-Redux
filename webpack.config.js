@@ -4,7 +4,8 @@ const path = require('path')
 
 module.exports = {
   // entry: ['./src/main.ts'],
-  entry: ['@babel/polyfill', '@webcomponents/webcomponentsjs', './src/main.ts'],
+  // entry: ['@babel/polyfill', '@webcomponents/webcomponentsjs', './src/main.ts'],
+  entry: ['@babel/polyfill', './src/main.ts'],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, './dist')
@@ -30,9 +31,7 @@ module.exports = {
           options: {
             presets: [
                 '@babel/preset-typescript',
-                // ['@babel/preset-env', {
-                //   modules: true
-                // }]
+                '@babel/preset-env'
             //   ["@babel/preset-env", {
             //       corejs: 3,
             //       modules: false,
@@ -41,9 +40,12 @@ module.exports = {
             ],
             plugins: [
               ["@babel/plugin-proposal-decorators", {decoratorsBeforeExport: true}],
-              '@babel/plugin-syntax-dynamic-import',
-              '@babel/plugin-proposal-class-properties',
-                "@babel/plugin-transform-runtime",
+               '@babel/plugin-proposal-class-properties',
+              //  ['babel-plugin-transform-builtin-extend', {
+              //    globals: ["MyComponent"]
+              //   }],
+              //   '@babel/plugin-transform-classes',
+               "@babel/plugin-transform-runtime",
             ]
           }
         }

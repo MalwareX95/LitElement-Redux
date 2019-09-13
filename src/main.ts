@@ -11,11 +11,11 @@ import {html, LitElement, css, customElement, property, eventOptions} from 'lit-
 
 import {connect} from 'pwa-helpers/connect-mixin'
 import {store} from './redux-basic';
-import('./view1')
+import './view1'
+import { increment } from './actions/appActions';
 
 @customElement('my-app')
 export class MyComponent extends connect(store)(LitElement){
-
     @property({type: String})
     title = '';
     
@@ -31,14 +31,15 @@ export class MyComponent extends connect(store)(LitElement){
         ]
     }
 
-    // increment()
-    //     store.dispatch(increment())
-    // }
+    increment(){
+        store.dispatch(increment())
+    }
     
     render(){
         return html`
             <div>
-                <counter-view></counter-view>
+                <button @click="${this.increment}">Inkrementuj</button>
+                <!-- <counter-view></counter-view> -->
             </div>
         `
     }

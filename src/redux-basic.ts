@@ -30,5 +30,5 @@ const devCompose: <Ext0, Ext1, StateExt0, StateExt1>(f1: StoreEnhancer<Ext0, Sta
 // );
 //#endregion
 
-export const store = createStore(combineReducers({appReducer})) as Store<IAppState, AppAction>
+export const store = createStore(appReducer) as Store<IAppState, AppAction>
 // export const store = createStore(combineReducers({appReducer})) as Store<IAppState, AppAction>
