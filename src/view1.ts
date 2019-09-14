@@ -4,7 +4,7 @@ import {store} from './redux-basic'
 import { IAppState } from "./reducers/app";
 
 @customElement('counter-view')
-export class View1 extends LitElement{
+export class View1 extends connect(store)(LitElement){
     
     @property({type: Number})
     counter?: number
